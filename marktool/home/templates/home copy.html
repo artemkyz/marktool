@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+
+<style>
+
+  </style>
+</head>
+
+<body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        {{ message|safe }}
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <div id="login">
+    <div id="login-window">
+      <h4>Вход</h4>
+        <form action="{{ url_for('login') }}" method="post">
+                <input class="login-input" type="text" name="gln" placeholder="Глобальный идентификационный номер" required>
+                <input class="login-input" type="password" name="password" placeholder="Пароль" required>
+                <a href="#"><input class="login-input" type="submit" value="Войти"></a>
+                <button class="login-input"><a class="close" href="#">Закрыть окно</a></button>
+        </form>
+    </div>
+  </div>
+
+  <div id="registration">
+    <div id="registration-window">
+      <h4>Регистрация</h4>
+        <form action="{{ url_for('registration') }}" method="post">
+          <input class="login-input" type="email" name="email" placeholder="Электронная почта" required>
+          <input class="login-input" type="text" name="gln" placeholder="Глобальный идентификационный номер" required>
+          <input class="login-input" type="password" name="password" id="password" minlength="4" placeholder="Пароль" required>
+          <input class="login-input" type="password" name="confirm_password" id="confirm_password" placeholder="Подтвердите пароль" required>
+          <p class="login-input" id="message"></p>
+          <a href="#"><input class="login-input" type="submit" value="Войти"></a>
+          <button class="login-input"><a class="close" href="#">Закрыть окно</a></button>
+        </form>
+    </div>
+  </div>
+
+  <div class="middle">
+    <h1>Добро пожаловать</h1>
+    <p>Веб приложение <b>Marktool</b> облегчает процедуру регистрации меховых изделий согласно <a href="https://base.garant.ru/71465032/" target="_blank"><i>постановлению</i></a> правительства РФ</p>
+
+    <h2>Что требуется для маркировки</h2>
+    <p>Регистрация в <b>Marktool</b>;</p>
+    <p>Глобальный идентификационный номер (GLN), указанный в профиле <a href="https:\\markirovka.nalog.ru" target="_blank">markirovka.nalog.ru</a>;</p>
+    <p>КиЗ и TID, указанные в списке немаркированных КиЗ в личном кабинете <a href="https:\\markirovka.nalog.ru" target="_blank">markirovka.nalog.ru</a>;</p>
+    <p>GTIN - глобальные номера товарной продукции, полученные в ГС1 РУ;</p>
+
+    <h2>Что делать дальше</h2>
+    <p>После регистрации перейдите в личный кабинет;</p>
+    <p>Заполните форму, указав gtin, киз, tid, почту и тип товара;</p>
+    <p>Нажмите <i>Получить документ</i>;</p>
+    <p>Проверьте почту и вложение в письме;</p>
+  </div>
+{% endblock %}

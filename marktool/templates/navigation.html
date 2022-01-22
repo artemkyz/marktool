@@ -1,0 +1,30 @@
+        <header>
+            <p id="logo">MARKTOOL</p>
+            {% if session['gln'] %}
+            <ul>
+                <li>
+                    <a href="{{ url_for('home') }}">Главная</a>
+                </li>
+                <li>
+                    <a href="/area">Личный кабинет</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('logout') }}">Выход</a>
+                </li>
+            </ul>
+            {% else %}
+            <ul>
+                <li>
+                    <a href="{{ url_for('home') }}">Главная</a>
+                </li>
+                <li>
+                    <!-- <a href="{{ url_for('registration') }}">Регистрация</a> -->
+                    <a href="#registration">Регистрация</a>
+                </li>
+                <li>
+                    <!-- <a href="{{ url_for('login') }}">Вход</a> -->
+                    <a href="#login">Вход</a>
+                </li>
+            </ul>
+            {% endif %}
+        </header>

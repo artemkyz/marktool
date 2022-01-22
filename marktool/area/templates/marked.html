@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="middle">
+        <h1>Маркированная продукция</h1>
+        {{ message|safe }}
+        <table class="marked">
+            <tr class="marked">
+                <th>GTIN</th>
+                <th>КИЗ</th>
+                <th>TID</th>
+                <th>SGTIN</th>
+                <th>SGTIN_HEX</th>
+            </tr>
+        {% for fur in furs %}
+            <tr class="marked">
+                <td class="marked">{{ fur.gtin }}</td>
+                <td class="marked">{{ fur.kiz }}</td>
+                <td class="marked">{{ fur.tid }}</td>
+                <td class="marked">{{ fur.sgtin }}</td>
+                <td class="marked">{{ fur.sgtin_hex }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+{% endblock %}

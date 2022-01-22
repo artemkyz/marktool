@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="middle">
+        <h1>Регистрация</h1>
+        <br>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              {{ message|safe }}
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        {{ message|safe }}
+        <form action="{{ url_for('registration') }}" method="post">
+            <table>
+
+                <tr>
+                    <td>
+                        Адрес электронной почты:
+                    </td>
+                    <td id="sc-cell">
+                        <input type="email" name="email" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Глобальный идентификационный номер GLN:
+                    </td>
+                    <td id="sc-cell">
+                        <input type="text" name="gln" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Пароль:
+                    </td>
+                    <td id="sc-cell">
+                        <input type="password" name="password" id="password" minlength="4" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Подтвердить пароль:
+                    </td>
+                    <td id="sc-cell">
+                        <input type="password" name="confirm_password" id="confirm_password" minlength="4" required>
+                        <p id="message"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+
+                    </td>
+                    <td id="sc-cell">
+                        <input type="submit" value="Зарегистрироваться">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+{% endblock %}
