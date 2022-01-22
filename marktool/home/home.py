@@ -9,4 +9,4 @@ def home():
     current_app.logger.info('Info level log')
     current_app.logger.warning('Warning level log')
     """Show home page"""
-    return render_template('home copy.html')
+    return render_template('home.html')

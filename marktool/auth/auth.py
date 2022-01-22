@@ -12,8 +12,6 @@ bp = Blueprint('auth', __name__, template_folder='templates')
 
 
 @bp.route('/registration', methods=['GET', 'POST'])
-# @bp.route('/registration', methods=['POST'])
-
 def registration():
     if request.method == 'POST':
         date = datetime.now().timestamp()
@@ -78,15 +76,7 @@ def confirm_registration():
 
 
 @bp.route('/login', methods=['GET', 'POST'])
-# @bp.route('/login', methods=['POST'])
 def login():
-    # if request.method == 'GET':
-    #     try:
-    #         if session['gln']:  # сессия есть - редирект в ЛК
-    #             return redirect(url_for('area'))
-    #     except KeyError:
-    #         return render_template('login.html')  # сессии нет - страница входа
-
     if request.method == 'POST':
         gln = request.form['gln']
         password = request.form['password']
@@ -104,7 +94,6 @@ def login():
             return redirect(url_for('area'))
 
         flash(error)
-    # return render_template('login.html')
     return redirect(url_for('home'))
 
 
